@@ -1,113 +1,120 @@
-🚢 Titanic Survival Prediction — Machine Learning Project
-📌 Project Overview
+# 🚢 Titanic Survival Prediction  
+### End-to-End Machine Learning Project
 
-This project focuses on building an end-to-end supervised machine learning pipeline to predict passenger survival from the historic Titanic disaster.
-Using real-world data from Kaggle, the project demonstrates the complete ML workflow — from data cleaning and feature engineering to model training, tuning, and evaluation.
+> Predicting passenger survival from the historic Titanic disaster using supervised machine learning.
 
-The goal is to accurately classify whether a passenger survived (1) or did not survive (0) based on demographic and travel-related features.
+---
 
-🎯 Problem Statement
+## 📌 Project Overview
+This project demonstrates a **complete end-to-end machine learning pipeline** built on the **Kaggle Titanic dataset**.  
+It covers everything from **data cleaning and feature engineering** to **model training, hyperparameter tuning, and evaluation**.
 
-Given passenger information such as:
+🎯 **Objective:**  
+Classify whether a passenger **survived (1)** or **did not survive (0)** based on demographic and travel-related features.
 
-Gender
+---
 
-Passenger class
+## 🎯 Problem Statement
+Given passenger details such as:
+- 👤 Gender  
+- 🎟️ Passenger Class  
+- 🎂 Age  
+- 💰 Fare Paid  
+- 👨‍👩‍👧 Family Size  
 
-Age
+👉 **Predict passenger survival**  
+This is a **binary classification problem**.
 
-Fare paid
+---
 
-Family size
+## 📂 Dataset
+- **Source:** Kaggle — *Titanic: Machine Learning from Disaster*
+- **Target Variable:** `Survived`
+  - `1` → Survived  
+  - `0` → Did not survive  
 
-👉 Predict whether the passenger survived the Titanic disaster.
+---
 
-This is a binary classification problem.
+## 🧹 Data Cleaning & Preprocessing
 
-📂 Dataset
+### 🔹 Data Cleaning
+- Removed irrelevant columns: `PassengerId`, `Name`, `Ticket`
+- Handled missing values:
+  - `Age` → filled with **median**
+  - `Embarked` → filled with **mode**
+  - Dropped `Cabin` due to excessive missing values
 
-Source: Kaggle — Titanic: Machine Learning from Disaster
+### 🔹 Encoding
+- `Sex` → Binary encoding
+- `Embarked` → One-hot encoding
 
-Target Variable: Survived
+### 🔹 Feature Engineering
+- ➕ Created `FamilySize`
+- ➕ Created `IsAlone`
+- ✅ Ensured all features are numeric and ML-ready
 
-1 → Survived
+---
 
-0 → Did not survive
+## 🧠 Models Explored
+The following supervised learning models were implemented:
+- Logistic Regression *(baseline)*
+- Decision Tree Classifier
+- 🌟 **Random Forest Classifier (final model)**
 
-🧹 Data Cleaning & Preprocessing
+The final model was selected based on **performance and generalization capability**.
 
-The following preprocessing steps were performed:
+---
 
-Removed irrelevant columns (PassengerId, Name, Ticket)
+## ⚙️ Model Training & Tuning
+- Train–test split applied after preprocessing
+- Hyperparameter tuning using **GridSearchCV**
+- Class imbalance handled using `class_weight="balanced"`
 
-Handled missing values:
+---
 
-Age filled using median
-
-Embarked filled using mode
-
-Dropped Cabin due to excessive missing values
-
-Encoded categorical features:
-
-Sex → binary encoding
-
-Embarked → one-hot encoding
-
-Feature engineering:
-
-Created FamilySize
-
-Created IsAlone feature
-
-Ensured all features are numeric and ML-ready
-
-🧠 Models Used
-
-Multiple supervised learning models were explored:
-
-Logistic Regression (baseline)
-
-Decision Tree Classifier
-
-Random Forest Classifier (final model)
-
-The final model was chosen based on performance and generalization ability.
-
-⚙️ Model Training & Tuning
-
-Train–test split applied after full preprocessing
-
-Hyperparameter tuning performed using GridSearchCV
-
-Class imbalance handled using class_weight="balanced"
-
-📊 Model Evaluation
+## 📊 Model Evaluation
 
 The Random Forest model was evaluated using:
+- Accuracy
+- Confusion Matrix
+- Precision
+- Recall
+- F1-score
 
-Accuracy
+### 🔹 Final Results
+- ✅ **Accuracy:** ~81–85%
+- ⚖️ Balanced precision and recall
+- 🚀 Better generalization than a single decision tree
 
-Confusion Matrix
+---
 
-Precision, Recall, and F1-score
+## 🛠️ Tools & Technologies
+- 🐍 Python  
+- 📊 Pandas, NumPy  
+- 🤖 Scikit-learn  
+- 📓 Jupyter Notebook  
 
-🔹 Final Performance
+---
 
-Accuracy: ~81–85%
+## 🚀 Key Learnings
+- Complete ML workflow from raw data to evaluation
+- Dataset-specific data cleaning strategies
+- Feature engineering for improved performance
+- Proper metric selection for classification problems
+- Understanding bias–variance tradeoff
 
-Strong precision and recall balance
+---
 
-Improved generalization compared to a single decision tree
+## 🔮 Future Improvements
+- Extract titles from passenger names
+- Try Gradient Boosting / XGBoost
+- Improve recall for minority class
+- Deploy model as a web application
 
-🛠️ Tools & Technologies
+---
 
-Python
+## 👨‍💻 Author
+**Sudhanshu Gocher**  
+Aspiring Data Scientist | Machine Learning Enthusiast
 
-Pandas
-
-NumPy
-
-Scikit-learn
-
-Jupyter Notebook
+⭐ *If you found this project helpful, feel free to star the repository!*
